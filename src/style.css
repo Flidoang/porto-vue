@@ -1,0 +1,82 @@
+@import 'tailwindcss';
+
+/* Konfigurasi theme di Tailwind v4 */
+@theme {
+  /* Color palette untuk dark mode */
+  --color-background: #111827; /* gray-900 */
+  --color-foreground: #f9fafb; /* gray-50 */
+
+  --color-card: #1f2937; /* gray-800 */
+  --color-card-foreground: #f9fafb;
+
+  --color-primary: #3b82f6; /* blue-500 */
+  --color-primary-foreground: #ffffff;
+
+  --color-secondary: #4b5563; /* gray-600 */
+  --color-secondary-foreground: #f9fafb;
+
+  --color-muted: #374151; /* gray-700 */
+  --color-muted-foreground: #9ca3af; /* gray-400 */
+
+  --color-accent: #8b5cf6; /* purple-500 */
+  --color-accent-foreground: #ffffff;
+
+  --color-border: #374151; /* gray-700 */
+  --color-ring: #3b82f6; /* blue-500 */
+
+  /* Font settings */
+  --font-family-sans: 'Inter', system-ui, sans-serif;
+
+  /* Radius */
+  --radius-lg: 0.75rem;
+  --radius-md: 0.5rem;
+  --radius-sm: 0.25rem;
+}
+
+/* Apply dark theme langsung ke root */
+:root {
+  color-scheme: dark;
+}
+
+/* Base styles untuk dark mode */
+body {
+  @apply bg-background text-foreground;
+  font-feature-settings:
+    'rlig' 1,
+    'calt' 1;
+}
+
+/* Custom utility classes untuk dark mode */
+.bg-surface {
+  @apply bg-card;
+}
+
+.text-muted {
+  @apply text-muted-foreground;
+}
+
+.border-surface {
+  @apply border-border;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar untuk dark mode */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-gray-800;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-gray-600 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-gray-500;
+}

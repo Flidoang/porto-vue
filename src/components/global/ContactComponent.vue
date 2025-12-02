@@ -169,40 +169,6 @@
                   />
                 </svg>
               </a>
-              <a
-                href="https://twitter.com/rafli"
-                target="_blank"
-                class="p-3 rounded-lg bg-gray-900/50 border border-gray-800 hover:border-blue-400 transition-colors group"
-              >
-                <svg
-                  class="w-5 h-5 text-gray-400 group-hover:text-blue-400 transition-colors"
-                  fill="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.213c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"
-                  />
-                </svg>
-              </a>
-              <a
-                href="https://instagram.com/rafli"
-                target="_blank"
-                class="p-3 rounded-lg bg-gray-900/50 border border-gray-800 hover:border-pink-500 transition-colors group"
-              >
-                <svg
-                  class="w-5 h-5 text-gray-400 group-hover:text-pink-400 transition-colors"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M16 11a4 4 0 11-8 0 4 4 0 018 0zM12 14a9 9 0 10-5.197-2.635M12 14v6m0 0l3-3m-3 3l-3-3"
-                  />
-                </svg>
-              </a>
             </div>
           </div>
         </div>
@@ -214,7 +180,24 @@
           >
             <h3 class="text-2xl font-semibold text-gray-100 mb-6">Send me a message</h3>
 
-            <form @submit.prevent="submitForm" class="space-y-6">
+            <!-- Netlify Form -->
+            <form
+              name="contact"
+              method="POST"
+              data-netlify="true"
+              data-netlify-honeypot="bot-field"
+              @submit.prevent="handleSubmit"
+              class="space-y-6"
+            >
+              <!-- Hidden Netlify Fields -->
+              <input type="hidden" name="form-name" value="contact" />
+              <p class="hidden">
+                <label>
+                  Don't fill this out if you're human:
+                  <input name="bot-field" />
+                </label>
+              </p>
+
               <!-- Name & Email Row -->
               <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
@@ -224,6 +207,7 @@
                   <input
                     type="text"
                     id="name"
+                    name="name"
                     v-model="form.name"
                     required
                     class="w-full px-4 py-3 bg-gray-900 border border-gray-700 rounded-lg text-gray-100 placeholder-gray-500 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-colors"
@@ -237,6 +221,7 @@
                   <input
                     type="email"
                     id="email"
+                    name="email"
                     v-model="form.email"
                     required
                     class="w-full px-4 py-3 bg-gray-900 border border-gray-700 rounded-lg text-gray-100 placeholder-gray-500 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-colors"
@@ -253,6 +238,7 @@
                 <input
                   type="text"
                   id="subject"
+                  name="subject"
                   v-model="form.subject"
                   required
                   class="w-full px-4 py-3 bg-gray-900 border border-gray-700 rounded-lg text-gray-100 placeholder-gray-500 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-colors"
@@ -267,6 +253,7 @@
                 </label>
                 <textarea
                   id="message"
+                  name="message"
                   v-model="form.message"
                   required
                   rows="6"
@@ -345,25 +332,58 @@ const form = ref({
 const loading = ref(false);
 const message = ref(null);
 
-const submitForm = async () => {
-  // SIMULASI AJA DULU - untuk development
+const handleSubmit = async () => {
+  // Validasi
+  if (
+    !form.value.name ||
+    !form.value.email ||
+    !form.value.subject ||
+    !form.value.message
+  ) {
+    message.value = {
+      type: "error",
+      text: "Please fill in all required fields.",
+    };
+    return;
+  }
+
   loading.value = true;
   message.value = null;
 
-  // Simulate API call
-  await new Promise((resolve) => setTimeout(resolve, 1500));
+  try {
+    // Encode form data untuk Netlify
+    const formData = new FormData();
+    formData.append("form-name", "contact");
+    formData.append("name", form.value.name);
+    formData.append("email", form.value.email);
+    formData.append("subject", form.value.subject);
+    formData.append("message", form.value.message);
 
-  // Success simulation
-  message.value = {
-    type: "success",
-    text:
-      "Message sent successfully! (This is a simulation. For real submission, setup EmailJS or deploy to Netlify)",
-  };
+    // Kirim ke Netlify
+    await fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: new URLSearchParams(formData).toString(),
+    });
 
-  // Reset form
-  form.value = { name: "", email: "", subject: "", message: "" };
+    // Success message
+    message.value = {
+      type: "success",
+      text: "Message sent successfully! I'll get back to you within 24 hours.",
+    };
 
-  loading.value = false;
+    // Reset form
+    form.value = { name: "", email: "", subject: "", message: "" };
+  } catch (error) {
+    console.error("Form submission error:", error);
+    message.value = {
+      type: "error",
+      text:
+        "Failed to send message. Please try again or email me directly at raflihendarsyah738@gmail.com",
+    };
+  } finally {
+    loading.value = false;
+  }
 };
 </script>
 

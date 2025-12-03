@@ -12,8 +12,13 @@
 
     <div class="relative z-10 px-4 mx-auto max-w-6xl">
       <!-- Section Header - Minimal -->
-      <div class="text-center mb-16">
-        <div class="inline-flex items-center justify-center mb-6">
+      <div class="text-center mb-16" data-aos="fade-up" data-aos-duration="600">
+        <div
+          class="inline-flex items-center justify-center mb-6"
+          data-aos="fade-up"
+          data-aos-duration="600"
+          data-aos-delay="100"
+        >
           <div class="h-px w-12 bg-gray-700"></div>
           <span
             class="mx-4 text-sm font-semibold tracking-widest text-gray-400 uppercase"
@@ -23,17 +28,32 @@
           <div class="h-px w-12 bg-gray-700"></div>
         </div>
 
-        <h2 class="text-3xl md:text-4xl font-light text-gray-100 mb-4">
+        <h2
+          class="text-3xl md:text-4xl font-light text-gray-100 mb-4"
+          data-aos="fade-up"
+          data-aos-duration="600"
+          data-aos-delay="150"
+        >
           What I <span class="text-blue-400 font-semibold">Bring to the Table</span>
         </h2>
 
-        <p class="text-gray-400 max-w-xl mx-auto">
+        <p
+          class="text-gray-400 max-w-xl mx-auto"
+          data-aos="fade-up"
+          data-aos-duration="600"
+          data-aos-delay="200"
+        >
           Technical skills combined with systematic approach to problem-solving.
         </p>
       </div>
 
       <!-- Skill Level Legend -->
-      <div class="flex justify-center gap-6 mb-8 text-sm">
+      <div
+        class="flex justify-center gap-6 mb-8 text-sm"
+        data-aos="fade-up"
+        data-aos-duration="500"
+        data-aos-delay="250"
+      >
         <div class="flex items-center">
           <div class="w-3 h-3 rounded-full bg-green-600 mr-2"></div>
           <span class="text-gray-400">Advanced (3/4)</span>
@@ -51,184 +71,80 @@
       <!-- Main Skills Grid - 2 Columns -->
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
         <!-- Programming Skills -->
-        <div class="space-y-6">
+        <div
+          class="space-y-6"
+          data-aos="fade-right"
+          data-aos-duration="700"
+          data-aos-delay="300"
+        >
           <!-- Category Header -->
           <div class="flex items-center mb-2">
             <div class="p-2 rounded-lg bg-blue-900/30 mr-3">
-              <svg
-                class="w-6 h-6 text-blue-400"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"
-                />
-              </svg>
+              <CodeBracketIcon class="w-6 h-6 text-blue-400" />
             </div>
             <h3 class="text-xl font-semibold text-gray-100">Programming</h3>
           </div>
 
           <!-- Programming Skills -->
           <div class="space-y-4">
-            <!-- Vue.js -->
-            <div class="group">
+            <div
+              v-for="(skill, index) in programmingSkills"
+              :key="skill.name"
+              class="group"
+              :data-aos="'fade-right'"
+              :data-aos-duration="600"
+              :data-aos-delay="300 + index * 50"
+            >
               <div class="flex items-center justify-between mb-1">
-                <span class="text-gray-300 font-medium">Vue.js</span>
-                <span class="text-sm text-yellow-400">Intermediate</span>
+                <span class="text-gray-300 font-medium">{{ skill.name }}</span>
+                <span :class="skill.levelClass">{{ skill.level }}</span>
               </div>
               <div class="h-2 bg-gray-800 rounded-full overflow-hidden">
-                <div class="h-full bg-yellow-600 rounded-full w-2/4"></div>
-              </div>
-            </div>
-
-            <!-- JavaScript -->
-            <div class="group">
-              <div class="flex items-center justify-between mb-1">
-                <span class="text-gray-300 font-medium">JavaScript</span>
-                <span class="text-sm text-red-400">Basic</span>
-              </div>
-              <div class="h-2 bg-gray-800 rounded-full overflow-hidden">
-                <div class="h-full bg-red-600 rounded-full w-1/4"></div>
-              </div>
-            </div>
-
-            <!-- Tailwind CSS -->
-            <div class="group">
-              <div class="flex items-center justify-between mb-1">
-                <span class="text-gray-300 font-medium">Tailwind CSS</span>
-                <span class="text-sm text-yellow-400">Intermediate</span>
-              </div>
-              <div class="h-2 bg-gray-800 rounded-full overflow-hidden">
-                <div class="h-full bg-yellow-600 rounded-full w-2/4"></div>
-              </div>
-            </div>
-
-            <!-- Flutter -->
-            <div class="group">
-              <div class="flex items-center justify-between mb-1">
-                <span class="text-gray-300 font-medium">Flutter</span>
-                <span class="text-sm text-yellow-400">Intermediate</span>
-              </div>
-              <div class="h-2 bg-gray-800 rounded-full overflow-hidden">
-                <div class="h-full bg-yellow-600 rounded-full w-2/4"></div>
-              </div>
-            </div>
-
-            <!-- Node.js -->
-            <div class="group">
-              <div class="flex items-center justify-between mb-1">
-                <span class="text-gray-300 font-medium">Node.js</span>
-                <span class="text-sm text-red-400">Basic</span>
-              </div>
-              <div class="h-2 bg-gray-800 rounded-full overflow-hidden">
-                <div class="h-full bg-red-600 rounded-full w-1/4"></div>
-              </div>
-            </div>
-
-            <!-- HTML/CSS -->
-            <div class="group">
-              <div class="flex items-center justify-between mb-1">
-                <span class="text-gray-300 font-medium">HTML/CSS</span>
-                <span class="text-sm text-yellow-400">Intermediate</span>
-              </div>
-              <div class="h-2 bg-gray-800 rounded-full overflow-hidden">
-                <div class="h-full bg-yellow-600 rounded-full w-2/4"></div>
+                <div
+                  :class="skill.barColorClass"
+                  class="h-full rounded-full"
+                  :style="{ width: skill.width }"
+                ></div>
               </div>
             </div>
           </div>
         </div>
 
         <!-- System Information -->
-        <div class="space-y-6">
+        <div
+          class="space-y-6"
+          data-aos="fade-left"
+          data-aos-duration="700"
+          data-aos-delay="350"
+        >
           <!-- Category Header -->
           <div class="flex items-center mb-2">
             <div class="p-2 rounded-lg bg-purple-900/30 mr-3">
-              <svg
-                class="w-6 h-6 text-purple-400"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
-                />
-              </svg>
+              <ShieldCheckIcon class="w-6 h-6 text-purple-400" />
             </div>
             <h3 class="text-xl font-semibold text-gray-100">System & Analysis</h3>
           </div>
 
           <!-- System Skills -->
           <div class="space-y-4">
-            <!-- System Analysis -->
-            <div class="group">
+            <div
+              v-for="(skill, index) in systemSkills"
+              :key="skill.name"
+              class="group"
+              :data-aos="'fade-left'"
+              :data-aos-duration="600"
+              :data-aos-delay="350 + index * 50"
+            >
               <div class="flex items-center justify-between mb-1">
-                <span class="text-gray-300 font-medium">System Analysis</span>
-                <span class="text-sm text-yellow-400">Intermediate</span>
+                <span class="text-gray-300 font-medium">{{ skill.name }}</span>
+                <span :class="skill.levelClass">{{ skill.level }}</span>
               </div>
               <div class="h-2 bg-gray-800 rounded-full overflow-hidden">
-                <div class="h-full bg-yellow-600 rounded-full w-2/4"></div>
-              </div>
-            </div>
-
-            <!-- Project Management -->
-            <div class="group">
-              <div class="flex items-center justify-between mb-1">
-                <span class="text-gray-300 font-medium">Project Management</span>
-                <span class="text-sm text-green-400">Advanced</span>
-              </div>
-              <div class="h-2 bg-gray-800 rounded-full overflow-hidden">
-                <div class="h-full bg-green-600 rounded-full w-3/4"></div>
-              </div>
-            </div>
-
-            <!-- Requirements Gathering -->
-            <div class="group">
-              <div class="flex items-center justify-between mb-1">
-                <span class="text-gray-300 font-medium">Requirements Gathering</span>
-                <span class="text-sm text-green-400">Advanced</span>
-              </div>
-              <div class="h-2 bg-gray-800 rounded-full overflow-hidden">
-                <div class="h-full bg-green-600 rounded-full w-3/4"></div>
-              </div>
-            </div>
-
-            <!-- Database Design -->
-            <div class="group">
-              <div class="flex items-center justify-between mb-1">
-                <span class="text-gray-300 font-medium">Database Design</span>
-                <span class="text-sm text-yellow-400">Intermediate</span>
-              </div>
-              <div class="h-2 bg-gray-800 rounded-full overflow-hidden">
-                <div class="h-full bg-yellow-600 rounded-full w-2/4"></div>
-              </div>
-            </div>
-
-            <!-- API Design -->
-            <div class="group">
-              <div class="flex items-center justify-between mb-1">
-                <span class="text-gray-300 font-medium">API Design</span>
-                <span class="text-sm text-yellow-400">Intermediate</span>
-              </div>
-              <div class="h-2 bg-gray-800 rounded-full overflow-hidden">
-                <div class="h-full bg-yellow-600 rounded-full w-2/4"></div>
-              </div>
-            </div>
-
-            <!-- Documentation -->
-            <div class="group">
-              <div class="flex items-center justify-between mb-1">
-                <span class="text-gray-300 font-medium">Technical Documentation</span>
-                <span class="text-sm text-green-400">Advanced</span>
-              </div>
-              <div class="h-2 bg-gray-800 rounded-full overflow-hidden">
-                <div class="h-full bg-green-600 rounded-full w-3/4"></div>
+                <div
+                  :class="skill.barColorClass"
+                  class="h-full rounded-full"
+                  :style="{ width: skill.width }"
+                ></div>
               </div>
             </div>
           </div>
@@ -236,7 +152,7 @@
       </div>
 
       <!-- Tech Stack Carousel -->
-      <div class="mb-16">
+      <div class="mb-16" data-aos="fade-up" data-aos-duration="600" data-aos-delay="400">
         <h3 class="text-lg font-semibold text-gray-300 mb-8 text-center">
           Technologies & Tools
         </h3>
@@ -247,7 +163,7 @@
             :slides-per-view="2"
             :space-between="30"
             :autoplay="{
-              delay: 0, // No delay for continuous scrolling
+              delay: 0,
               disableOnInteraction: false,
               waitForTransition: false,
               pauseOnMouseEnter: true,
@@ -258,200 +174,27 @@
             :breakpoints="carouselBreakpoints"
             class="tech-carousel"
           >
-            <!-- Vue.js -->
-            <swiper-slide>
+            <swiper-slide v-for="tech in technologies" :key="tech.name">
               <div
-                class="flex items-center justify-center p-4 rounded-xl border border-gray-800 bg-gray-800/30 hover:border-blue-500/50 transition-colors group h-24"
+                :class="`flex items-center justify-center p-4 rounded-xl border border-gray-800 bg-gray-800/30 hover:border-${tech.color}-500/50 transition-colors group h-24`"
               >
-                <img
-                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original.svg"
-                  class="w-14 h-14 text-gray-400 group-hover:scale-110 transition-transform"
-                  alt="Vue.js"
-                />
-              </div>
-            </swiper-slide>
-
-            <!-- JavaScript -->
-            <swiper-slide>
-              <div
-                class="flex items-center justify-center p-4 rounded-xl border border-gray-800 bg-gray-800/30 hover:border-yellow-500/50 transition-colors group h-24"
-              >
-                <img
-                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"
-                  class="w-14 h-14 text-gray-400 group-hover:scale-110 transition-transform"
-                  alt="JavaScript"
-                />
-              </div>
-            </swiper-slide>
-
-            <!-- Tailwind CSS -->
-            <swiper-slide>
-              <div
-                class="flex items-center justify-center p-4 rounded-xl border border-gray-800 bg-gray-800/30 hover:border-cyan-500/50 transition-colors group h-24"
-              >
-                <img
-                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-plain.svg"
-                  class="w-14 h-14 text-gray-400 group-hover:scale-110 transition-transform"
-                  alt="Tailwind CSS"
-                />
-              </div>
-            </swiper-slide>
-
-            <!-- Flutter -->
-            <swiper-slide>
-              <div
-                class="flex items-center justify-center p-4 rounded-xl border border-gray-800 bg-gray-800/30 hover:border-blue-500/50 transition-colors group h-24"
-              >
-                <img
-                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg"
-                  class="w-14 h-14 text-gray-400 group-hover:scale-110 transition-transform"
-                  alt="Flutter"
-                />
-              </div>
-            </swiper-slide>
-
-            <!-- Node.js -->
-            <swiper-slide>
-              <div
-                class="flex items-center justify-center p-4 rounded-xl border border-gray-800 bg-gray-800/30 hover:border-green-500/50 transition-colors group h-24"
-              >
-                <img
-                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg"
-                  class="w-14 h-14 text-gray-400 group-hover:scale-110 transition-transform"
-                  alt="Node.js"
-                />
-              </div>
-            </swiper-slide>
-
-            <!-- HTML5 -->
-            <swiper-slide>
-              <div
-                class="flex items-center justify-center p-4 rounded-xl border border-gray-800 bg-gray-800/30 hover:border-orange-500/50 transition-colors group h-24"
-              >
-                <img
-                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg"
-                  class="w-14 h-14 text-gray-400 group-hover:scale-110 transition-transform"
-                  alt="HTML5"
-                />
-              </div>
-            </swiper-slide>
-
-            <!-- CSS3 -->
-            <swiper-slide>
-              <div
-                class="flex items-center justify-center p-4 rounded-xl border border-gray-800 bg-gray-800/30 hover:border-blue-500/50 transition-colors group h-24"
-              >
-                <img
-                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg"
-                  class="w-14 h-14 text-gray-400 group-hover:scale-110 transition-transform"
-                  alt="CSS3"
-                />
-              </div>
-            </swiper-slide>
-
-            <!-- Git -->
-            <swiper-slide>
-              <div
-                class="flex items-center justify-center p-4 rounded-xl border border-gray-800 bg-gray-800/30 hover:border-red-500/50 transition-colors group h-24"
-              >
-                <img
-                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg"
-                  class="w-14 h-14 text-gray-400 group-hover:scale-110 transition-transform"
-                  alt="Git"
-                />
-              </div>
-            </swiper-slide>
-
-            <!-- VS Code -->
-            <swiper-slide>
-              <div
-                class="flex items-center justify-center p-4 rounded-xl border border-gray-800 bg-gray-800/30 hover:border-blue-500/50 transition-colors group h-24"
-              >
-                <img
-                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg"
-                  class="w-14 h-14 text-gray-400 group-hover:scale-110 transition-transform"
-                  alt="VS Code"
-                />
-              </div>
-            </swiper-slide>
-
-            <!-- Figma -->
-            <swiper-slide>
-              <div
-                class="flex items-center justify-center p-4 rounded-xl border border-gray-800 bg-gray-800/30 hover:border-purple-500/50 transition-colors group h-24"
-              >
-                <img
-                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg"
-                  class="w-14 h-14 text-gray-400 group-hover:scale-110 transition-transform"
-                  alt="Figma"
-                />
-              </div>
-            </swiper-slide>
-
-            <!-- MySQL -->
-            <swiper-slide>
-              <div
-                class="flex items-center justify-center p-4 rounded-xl border border-gray-800 bg-gray-800/30 hover:border-blue-500/50 transition-colors group h-24"
-              >
-                <img
-                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg"
-                  class="w-14 h-14 text-gray-400 group-hover:scale-110 transition-transform"
-                  alt="MySQL"
-                />
-              </div>
-            </swiper-slide>
-
-            <!-- PostgreSQL -->
-            <swiper-slide>
-              <div
-                class="flex items-center justify-center p-4 rounded-xl border border-gray-800 bg-gray-800/30 hover:border-blue-500/50 transition-colors group h-24"
-              >
-                <img
-                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg"
-                  class="w-14 h-14 text-gray-400 group-hover:scale-110 transition-transform"
-                  alt="PostgreSQL"
-                />
-              </div>
-            </swiper-slide>
-
-            <!-- ClickUp -->
-            <swiper-slide>
-              <div
-                class="flex items-center justify-center p-4 rounded-xl border border-gray-800 bg-gray-800/30 hover:border-purple-500/50 transition-colors group h-24"
-              >
-                <div class="w-14 h-14 flex items-center justify-center">
-                  <span
-                    class="text-2xl font-bold text-gray-400 group-hover:text-purple-400 transition-colors"
-                    >CU</span
-                  >
+                <!-- Use local SVG if available, otherwise use text fallback -->
+                <div
+                  v-if="tech.localIcon"
+                  class="w-14 h-14 flex items-center justify-center"
+                >
+                  <component
+                    :is="tech.localIcon"
+                    :class="`w-full h-full text-gray-400 group-hover:text-${tech.color}-400 transition-colors`"
+                  />
                 </div>
-              </div>
-            </swiper-slide>
-
-            <!-- Jira -->
-            <swiper-slide>
-              <div
-                class="flex items-center justify-center p-4 rounded-xl border border-gray-800 bg-gray-800/30 hover:border-blue-500/50 transition-colors group h-24"
-              >
-                <div class="w-14 h-14 flex items-center justify-center">
+                <!-- Text fallback for tools without SVG -->
+                <div v-else class="w-14 h-14 flex items-center justify-center">
                   <span
-                    class="text-2xl font-bold text-gray-400 group-hover:text-blue-400 transition-colors"
-                    >J</span
+                    :class="`text-2xl font-bold text-gray-400 group-hover:text-${tech.color}-400 transition-colors`"
                   >
-                </div>
-              </div>
-            </swiper-slide>
-
-            <!-- draw.io -->
-            <swiper-slide>
-              <div
-                class="flex items-center justify-center p-4 rounded-xl border border-gray-800 bg-gray-800/30 hover:border-orange-500/50 transition-colors group h-24"
-              >
-                <div class="w-14 h-14 flex items-center justify-center">
-                  <span
-                    class="text-2xl font-bold text-gray-400 group-hover:text-orange-400 transition-colors"
-                    >D</span
-                  >
+                    {{ tech.fallbackText }}
+                  </span>
                 </div>
               </div>
             </swiper-slide>
@@ -467,36 +210,221 @@ import { ref } from "vue";
 import { Swiper, SwiperSlide } from "swiper/vue";
 import { Autoplay } from "swiper/modules";
 
+// HeroIcons imports
+import {
+  CodeBracketIcon,
+  ShieldCheckIcon,
+  CodeBracketSquareIcon,
+  ServerStackIcon,
+  CommandLineIcon,
+  CpuChipIcon,
+  CircleStackIcon,
+  DocumentTextIcon,
+  Cog6ToothIcon,
+  PaintBrushIcon,
+  DevicePhoneMobileIcon,
+  CubeIcon,
+  CloudIcon,
+  ChartBarIcon,
+  WrenchScrewdriverIcon,
+  BeakerIcon,
+  ComputerDesktopIcon,
+  FolderIcon,
+  PuzzlePieceIcon,
+  ClockIcon,
+  DocumentMagnifyingGlassIcon,
+  QueueListIcon,
+  TableCellsIcon,
+  ArrowsPointingOutIcon,
+  LinkIcon,
+  BookOpenIcon,
+  CheckCircleIcon,
+  ExclamationTriangleIcon,
+} from "@heroicons/vue/24/outline";
+
 // Import Swiper styles
 import "swiper/css";
 
 // Carousel breakpoints
 const carouselBreakpoints = ref({
-  320: {
-    slidesPerView: 2,
-    spaceBetween: 15,
-  },
-  480: {
-    slidesPerView: 3,
-    spaceBetween: 20,
-  },
-  640: {
-    slidesPerView: 4,
-    spaceBetween: 25,
-  },
-  768: {
-    slidesPerView: 5,
-    spaceBetween: 30,
-  },
-  1024: {
-    slidesPerView: 6,
-    spaceBetween: 30,
-  },
-  1280: {
-    slidesPerView: 8,
-    spaceBetween: 30,
-  },
+  320: { slidesPerView: 2, spaceBetween: 15 },
+  480: { slidesPerView: 3, spaceBetween: 20 },
+  640: { slidesPerView: 4, spaceBetween: 25 },
+  768: { slidesPerView: 5, spaceBetween: 30 },
+  1024: { slidesPerView: 6, spaceBetween: 30 },
+  1280: { slidesPerView: 8, spaceBetween: 30 },
 });
+
+// Programming Skills Data
+const programmingSkills = ref([
+  {
+    name: "Vue.js",
+    level: "Intermediate",
+    levelClass: "text-sm text-yellow-400",
+    barColorClass: "bg-yellow-600",
+    width: "50%",
+  },
+  {
+    name: "JavaScript",
+    level: "Basic",
+    levelClass: "text-sm text-red-400",
+    barColorClass: "bg-red-600",
+    width: "25%",
+  },
+  {
+    name: "Tailwind CSS",
+    level: "Intermediate",
+    levelClass: "text-sm text-yellow-400",
+    barColorClass: "bg-yellow-600",
+    width: "50%",
+  },
+  {
+    name: "Flutter",
+    level: "Intermediate",
+    levelClass: "text-sm text-yellow-400",
+    barColorClass: "bg-yellow-600",
+    width: "50%",
+  },
+  {
+    name: "Node.js",
+    level: "Basic",
+    levelClass: "text-sm text-red-400",
+    barColorClass: "bg-red-600",
+    width: "25%",
+  },
+  {
+    name: "HTML/CSS",
+    level: "Intermediate",
+    levelClass: "text-sm text-yellow-400",
+    barColorClass: "bg-yellow-600",
+    width: "50%",
+  },
+]);
+
+// System Skills Data
+const systemSkills = ref([
+  {
+    name: "System Analysis",
+    level: "Intermediate",
+    levelClass: "text-sm text-yellow-400",
+    barColorClass: "bg-yellow-600",
+    width: "50%",
+  },
+  {
+    name: "Project Management",
+    level: "Advanced",
+    levelClass: "text-sm text-green-400",
+    barColorClass: "bg-green-600",
+    width: "75%",
+  },
+  {
+    name: "Requirements Gathering",
+    level: "Advanced",
+    levelClass: "text-sm text-green-400",
+    barColorClass: "bg-green-600",
+    width: "75%",
+  },
+  {
+    name: "Database Design",
+    level: "Intermediate",
+    levelClass: "text-sm text-yellow-400",
+    barColorClass: "bg-yellow-600",
+    width: "50%",
+  },
+  {
+    name: "API Design",
+    level: "Intermediate",
+    levelClass: "text-sm text-yellow-400",
+    barColorClass: "bg-yellow-600",
+    width: "50%",
+  },
+  {
+    name: "Technical Documentation",
+    level: "Advanced",
+    levelClass: "text-sm text-green-400",
+    barColorClass: "bg-green-600",
+    width: "75%",
+  },
+]);
+
+// Technologies Data with Local Icons
+const technologies = ref([
+  {
+    name: "Vue.js",
+    color: "blue",
+    localIcon: CodeBracketSquareIcon,
+  },
+  {
+    name: "JavaScript",
+    color: "yellow",
+    localIcon: CodeBracketIcon,
+  },
+  {
+    name: "Tailwind CSS",
+    color: "cyan",
+    localIcon: PaintBrushIcon,
+  },
+  {
+    name: "Flutter",
+    color: "blue",
+    localIcon: DevicePhoneMobileIcon,
+  },
+  {
+    name: "Node.js",
+    color: "green",
+    localIcon: ServerStackIcon,
+  },
+  {
+    name: "HTML5",
+    color: "orange",
+    localIcon: CommandLineIcon,
+  },
+  {
+    name: "CSS3",
+    color: "blue",
+    localIcon: PaintBrushIcon,
+  },
+  {
+    name: "Git",
+    color: "red",
+    localIcon: CubeIcon,
+  },
+  {
+    name: "VS Code",
+    color: "blue",
+    localIcon: ComputerDesktopIcon,
+  },
+  {
+    name: "Figma",
+    color: "purple",
+    localIcon: BeakerIcon,
+  },
+  {
+    name: "MySQL",
+    color: "blue",
+    localIcon: CircleStackIcon,
+  },
+  {
+    name: "PostgreSQL",
+    color: "blue",
+    localIcon: CircleStackIcon,
+  },
+  {
+    name: "ClickUp",
+    color: "purple",
+    fallbackText: "CU",
+  },
+  {
+    name: "Jira",
+    color: "blue",
+    fallbackText: "J",
+  },
+  {
+    name: "draw.io",
+    color: "orange",
+    fallbackText: "D",
+  },
+]);
 </script>
 
 <style>

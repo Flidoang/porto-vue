@@ -2,8 +2,13 @@
   <section id="projects" class="py-20 md:py-28 bg-gray-900">
     <div class="px-4 mx-auto max-w-7xl">
       <!-- Section Header -->
-      <div class="text-center mb-16">
-        <div class="inline-flex items-center space-x-3 mb-6">
+      <div class="text-center mb-16" data-aos="fade-up" data-aos-duration="600">
+        <div
+          class="inline-flex items-center space-x-3 mb-6"
+          data-aos="fade-up"
+          data-aos-duration="600"
+          data-aos-delay="100"
+        >
           <div class="h-px w-8 bg-gray-700"></div>
           <span class="text-sm font-semibold tracking-widest text-gray-400 uppercase">
             PORTFOLIO
@@ -11,11 +16,21 @@
           <div class="h-px w-8 bg-gray-700"></div>
         </div>
 
-        <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-100 mb-6">
+        <h2
+          class="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-100 mb-6"
+          data-aos="fade-up"
+          data-aos-duration="600"
+          data-aos-delay="150"
+        >
           Featured <span class="text-blue-400">Projects</span>
         </h2>
 
-        <p class="text-gray-400 max-w-2xl mx-auto text-lg">
+        <p
+          class="text-gray-400 max-w-2xl mx-auto text-lg"
+          data-aos="fade-up"
+          data-aos-duration="600"
+          data-aos-delay="200"
+        >
           A selection of my recent work showcasing my skills in web development and
           design.
         </p>
@@ -26,6 +41,9 @@
         <!-- Project 1 -->
         <div
           class="group relative overflow-hidden rounded-2xl border border-gray-800 bg-gray-800/50 backdrop-blur-sm transition-all duration-300 hover:border-blue-500/50 hover:shadow-2xl hover:shadow-blue-900/20"
+          data-aos="fade-up"
+          data-aos-duration="700"
+          data-aos-delay="100"
         >
           <!-- Project Image/Thumbnail -->
           <div
@@ -158,6 +176,9 @@
         <!-- Project 2 -->
         <div
           class="group relative overflow-hidden rounded-2xl border border-gray-800 bg-gray-800/50 backdrop-blur-sm transition-all duration-300 hover:border-purple-500/50 hover:shadow-2xl hover:shadow-purple-900/20"
+          data-aos="fade-up"
+          data-aos-duration="700"
+          data-aos-delay="200"
         >
           <div
             class="relative h-48 overflow-hidden bg-linear-to-br from-purple-900/20 to-pink-900/20"
@@ -286,6 +307,9 @@
         <!-- Project 3 -->
         <div
           class="group relative overflow-hidden rounded-2xl border border-gray-800 bg-gray-800/50 backdrop-blur-sm transition-all duration-300 hover:border-green-500/50 hover:shadow-2xl hover:shadow-green-900/20"
+          data-aos="fade-up"
+          data-aos-duration="700"
+          data-aos-delay="300"
         >
           <div
             class="relative h-48 overflow-hidden bg-linear-to-br from-green-900/20 to-emerald-900/20"
@@ -418,7 +442,12 @@
       </div>
 
       <!-- View All Projects Button -->
-      <div class="text-center mt-16">
+      <div
+        class="text-center mt-16"
+        data-aos="fade-up"
+        data-aos-duration="600"
+        data-aos-delay="400"
+      >
         <a
           href="#all-projects"
           class="inline-flex items-center px-6 py-3 text-gray-300 border border-gray-700 rounded-lg hover:border-blue-500 hover:text-blue-400 transition-colors group"

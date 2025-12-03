@@ -17,6 +17,7 @@
     "@headlessui/vue": "^1.7.23",
     "@heroicons/vue": "^2.2.0",
     "@tailwindcss/vite": "^4.1.17",
+    "aos": "^3.0.0-beta.6",
     "lucide-vue-next": "^0.555.0",
     "swiper": "^12.0.3",
     "tailwindcss": "^4.1.17",

@@ -12,8 +12,13 @@
 
     <div class="relative z-10 px-4 mx-auto max-w-6xl">
       <!-- Section Header -->
-      <div class="text-center mb-16">
-        <div class="inline-flex items-center justify-center mb-6">
+      <div class="text-center mb-16" data-aos="fade-up" data-aos-duration="600">
+        <div
+          class="inline-flex items-center justify-center mb-6"
+          data-aos="fade-up"
+          data-aos-duration="600"
+          data-aos-delay="100"
+        >
           <div class="h-px w-12 bg-gray-700"></div>
           <span
             class="mx-4 text-sm font-semibold tracking-widest text-gray-400 uppercase"
@@ -23,11 +28,21 @@
           <div class="h-px w-12 bg-gray-700"></div>
         </div>
 
-        <h2 class="text-3xl md:text-4xl font-light text-gray-100 mb-4">
+        <h2
+          class="text-3xl md:text-4xl font-light text-gray-100 mb-4"
+          data-aos="fade-up"
+          data-aos-duration="600"
+          data-aos-delay="150"
+        >
           Let's <span class="text-blue-400 font-semibold">Work Together</span>
         </h2>
 
-        <p class="text-gray-400 max-w-xl mx-auto">
+        <p
+          class="text-gray-400 max-w-xl mx-auto"
+          data-aos="fade-up"
+          data-aos-duration="600"
+          data-aos-delay="200"
+        >
           Have a project in mind? I'd love to hear about it. Send me a message and let's
           create something amazing.
         </p>
@@ -39,6 +54,9 @@
           <!-- Email Card -->
           <div
             class="p-6 rounded-2xl border border-gray-800 bg-gray-800/30 backdrop-blur-sm"
+            data-aos="fade-right"
+            data-aos-duration="700"
+            data-aos-delay="250"
           >
             <div class="flex items-start mb-4">
               <div class="p-3 rounded-xl bg-blue-900/30 mr-4">
@@ -72,6 +90,9 @@
           <!-- Location Card -->
           <div
             class="p-6 rounded-2xl border border-gray-800 bg-gray-800/30 backdrop-blur-sm"
+            data-aos="fade-right"
+            data-aos-duration="700"
+            data-aos-delay="300"
           >
             <div class="flex items-start mb-4">
               <div class="p-3 rounded-xl bg-green-900/30 mr-4">
@@ -106,6 +127,9 @@
           <!-- Availability Card -->
           <div
             class="p-6 rounded-2xl border border-gray-800 bg-gray-800/30 backdrop-blur-sm"
+            data-aos="fade-right"
+            data-aos-duration="700"
+            data-aos-delay="350"
           >
             <div class="flex items-start mb-4">
               <div class="p-3 rounded-xl bg-purple-900/30 mr-4">
@@ -136,6 +160,9 @@
           <!-- Social Links -->
           <div
             class="p-6 rounded-2xl border border-gray-800 bg-gray-800/30 backdrop-blur-sm"
+            data-aos="fade-right"
+            data-aos-duration="700"
+            data-aos-delay="400"
           >
             <h3 class="text-lg font-semibold text-gray-100 mb-4">Connect with me</h3>
             <div class="flex space-x-4">
@@ -174,7 +201,12 @@
         </div>
 
         <!-- Contact Form -->
-        <div class="lg:col-span-2">
+        <div
+          class="lg:col-span-2"
+          data-aos="fade-left"
+          data-aos-duration="800"
+          data-aos-delay="250"
+        >
           <div
             class="p-8 rounded-2xl border border-gray-800 bg-gray-800/30 backdrop-blur-sm"
           >
@@ -212,6 +244,9 @@
                     required
                     class="w-full px-4 py-3 bg-gray-900 border border-gray-700 rounded-lg text-gray-100 placeholder-gray-500 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-colors"
                     placeholder="John Doe"
+                    data-aos="fade-up"
+                    data-aos-duration="500"
+                    data-aos-delay="300"
                   />
                 </div>
                 <div>
@@ -226,6 +261,9 @@
                     required
                     class="w-full px-4 py-3 bg-gray-900 border border-gray-700 rounded-lg text-gray-100 placeholder-gray-500 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-colors"
                     placeholder="john@example.com"
+                    data-aos="fade-up"
+                    data-aos-duration="500"
+                    data-aos-delay="350"
                   />
                 </div>
               </div>
@@ -243,6 +281,9 @@
                   required
                   class="w-full px-4 py-3 bg-gray-900 border border-gray-700 rounded-lg text-gray-100 placeholder-gray-500 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-colors"
                   placeholder="Project inquiry"
+                  data-aos="fade-up"
+                  data-aos-duration="500"
+                  data-aos-delay="400"
                 />
               </div>
 
@@ -259,6 +300,9 @@
                   rows="6"
                   class="w-full px-4 py-3 bg-gray-900 border border-gray-700 rounded-lg text-gray-100 placeholder-gray-500 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-colors resize-none"
                   placeholder="Tell me about your project..."
+                  data-aos="fade-up"
+                  data-aos-duration="500"
+                  data-aos-delay="450"
                 ></textarea>
               </div>
 
@@ -267,6 +311,9 @@
                 type="submit"
                 :disabled="loading"
                 class="w-full py-3 px-6 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-500 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center"
+                data-aos="zoom-in"
+                data-aos-duration="600"
+                data-aos-delay="500"
               >
                 <span v-if="!loading">Send Message</span>
                 <span v-else class="flex items-center">
@@ -303,6 +350,8 @@
                     ? 'bg-green-900/30 text-green-400 border border-green-800'
                     : 'bg-red-900/30 text-red-400 border border-red-800',
                 ]"
+                data-aos="fade-up"
+                data-aos-duration="500"
               >
                 {{ message.text }}
               </div>

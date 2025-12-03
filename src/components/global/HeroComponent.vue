@@ -192,7 +192,7 @@
           <div class="relative">
             <img
               class="w-full mx-auto rounded-lg border border-gray-700 transform hover:scale-[1.02] transition-transform duration-300"
-              src="@/assets/rafli.png"
+              src="@/assets/rafli.webp"
               alt="Rafli Hendarsyah - Frontend Developer"
               data-aos="zoom-in"
               data-aos-duration="1000"
